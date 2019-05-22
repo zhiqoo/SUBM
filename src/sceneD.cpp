@@ -6,9 +6,10 @@ void sceneD::setup(){
     ofSetCircleResolution(150);
     
     ofSetColor(239);
+    ofFill();
     ofSetLineWidth(2);
     
-    ofFill();
+    nBandsToGet = 360;
     
 }
 
@@ -23,8 +24,8 @@ void sceneD::draw(){
     
     auto center = ofVec2f(ofGetWidth()/2, ofGetHeight()/2);
     
-//    span = 3+1000000*fftSmoothed[260];
-    span = 20; // 代替
+    span = 3+1000000*fft[260];
+//    span = 20; // 代替
     if (span < 6) {
         span = 6;
     } else if (span > 50) {
@@ -115,5 +116,14 @@ void sceneD::gotMessage(ofMessage msg){
 
 //--------------------------------------------------------------
 void sceneD::dragEvent(ofDragInfo dragInfo){
+    
+}
+
+//--------------------------------------------------------------
+void sceneD::getFft(float *fftSmoothed){
+    
+    for (int i = 0; i < 360; i++) {
+        fft[i] = fftSmoothed[i];
+    }
     
 }

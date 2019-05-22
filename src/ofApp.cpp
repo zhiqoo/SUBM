@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    ofSetFrameRate(60);
+    ofSetFrameRate(20);
     ofBackground(39);
     
     baseScene *sa = new sceneA();
@@ -50,11 +50,19 @@ void ofApp::update(){
     }
     
     scenes[currentScene]->update();
+    scenes[currentScene]->getFft(fftSmoothed);
     
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    
+    ofSetColor(239);
+    
+    for (int i = 0; i < nBandsToGet; i++) {
+        ofDrawRectangle(50 + i*200.0/nBandsToGet, ofGetHeight()-50, 200.0/nBandsToGet, (-fftSmoothed[i])*100);
+    }
+    
     scenes[currentScene]->draw();
 
 }
@@ -66,6 +74,24 @@ void ofApp::keyPressed(int key){
         currentScene++;
         currentScene %= scenes.size();
         scenes[currentScene]->setup();
+    }
+    
+    switch (key) {
+        case '1':
+            currentScene = 0;
+            break;
+        case '2':
+            currentScene = 1;
+            break;
+        case '3':
+            currentScene = 2;
+            break;
+        case '4':
+            currentScene = 3;
+            break;
+        case '5':
+            currentScene = 4;
+            break;
     }
 
 }

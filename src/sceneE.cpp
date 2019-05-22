@@ -14,13 +14,15 @@ void sceneE::setup(){
     
     radius = 300;
     
+    nBandsToGet = 360;
+    
 }
 
 //--------------------------------------------------------------
 void sceneE::update(){
     
-//    radius = (int)(300 + 300000 * fftSmoothed[300]);
-    radius = 300; // 代替
+    radius = (int)(300 + 300000 * fft[300]);
+//    radius = 300; // 代替
     if (radius > 1000) {
         radius = 1000;
     }
@@ -63,8 +65,8 @@ void sceneE::draw(){
         base_location_b = (base_location_b - base_avg) * x + base_avg;
         base_location_c = (base_location_c - base_avg) * x + base_avg;
         
-//        auto noise_value = ofNoise(fftSmoothed[340] * 100, base_avg.y * 0.005, base_avg.z * 0.005, ofGetFrameNum() * 0.0025);
-        auto noise_value = ofNoise(base_avg.x * 0.005, base_avg.y * 0.005, base_avg.z * 0.005, ofGetFrameNum() * 0.0025); // 代替
+        auto noise_value = ofNoise(fft[340] * 100, base_avg.y * 0.005, base_avg.z * 0.005, ofGetFrameNum() * 0.0025);
+//        auto noise_value = ofNoise(base_avg.x * 0.005, base_avg.y * 0.005, base_avg.z * 0.005, ofGetFrameNum() * 0.0025); // 代替
         if (noise_value >= threshold) {
             
             auto tmp_location_a = glm::normalize(base_location_a) * ofMap(noise_value, threshold, 1.0, 300, 470);
@@ -205,5 +207,14 @@ void sceneE::gotMessage(ofMessage msg){
 
 //--------------------------------------------------------------
 void sceneE::dragEvent(ofDragInfo dragInfo){
+    
+}
+
+//--------------------------------------------------------------
+void sceneE::getFft(float *fftSmoothed){
+    
+    for (int i = 0; i < 360; i++) {
+        fft[i] = fftSmoothed[i];
+    }
     
 }

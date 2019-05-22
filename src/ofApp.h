@@ -32,6 +32,8 @@ class ofApp : public ofBaseApp{
     float *fftSmoothed;
     int nBandsToGet;
     
+    float height;
+    
     vector <baseScene *> scenes;
     int currentScene;
 		

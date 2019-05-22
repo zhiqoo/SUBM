@@ -13,6 +13,8 @@ void sceneB::setup(){
     
     myMesh = ofPlanePrimitive(1000, 1000, 100, 100).getMesh();
     
+    nBandsToGet = 360;
+    
 }
 
 //--------------------------------------------------------------
@@ -20,8 +22,8 @@ void sceneB::update(){
     
     for (int i = 0; i < myMesh.getVertices().size(); i++) {
         ofVec3f point = myMesh.getVertices()[i] / 400.0;
-//        float z = 300 * fftSmoothed[(i)%nBandsToGet];
-        float z = 300; // 代替
+        float z = 300 * fft[(i)%nBandsToGet];
+//        float z = 300; // 代替
         myMesh.setVertex(i, ofVec3f(myMesh.getVertices()[i].x, myMesh.getVertices()[i].y, z));
     }
 
@@ -107,5 +109,14 @@ void sceneB::gotMessage(ofMessage msg){
 
 //--------------------------------------------------------------
 void sceneB::dragEvent(ofDragInfo dragInfo){
+    
+}
+
+//--------------------------------------------------------------
+void sceneB::getFft(float *fftSmoothed){
+    
+    for (int i = 0; i < 360; i++) {
+        fft[i] = fftSmoothed[i];
+    }
     
 }

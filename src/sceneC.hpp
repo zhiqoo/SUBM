@@ -81,6 +81,9 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
+    float fft[360];
+    void getFft(float *fftSmoothed);
+    
     ofVboMesh particles;
     
     ofShader render;
@@ -96,6 +99,7 @@ public:
     int particleNum;
     int texRes;
     
+    int nBandsToGet;
     float r, theta, phy;
     
 };

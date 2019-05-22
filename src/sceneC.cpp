@@ -105,8 +105,10 @@ void sceneC::update(){
     pingPong.dst->end();
     pingPong.swap();
     
-//    theta += 0.1 * fftSmoothed[120];
-//    phy += 0.1 * fftSmoothed[40];
+    nBandsToGet = 360;
+    
+    theta += 0.1 * fft[120];
+    phy += 0.1 * fft[40];
     
 }
 
@@ -187,5 +189,14 @@ void sceneC::gotMessage(ofMessage msg){
 
 //--------------------------------------------------------------
 void sceneC::dragEvent(ofDragInfo dragInfo){
+    
+}
+
+//--------------------------------------------------------------
+void sceneC::getFft(float *fftSmoothed){
+    
+    for (int i = 0; i < 360; i++) {
+        fft[i] = fftSmoothed[i];
+    }
     
 }

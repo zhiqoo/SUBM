@@ -22,7 +22,11 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
+    float fft[360];
+    void getFft(float *fftSmoothed);
+    
     ofMesh myMesh;
     ofEasyCam cam;
+    int nBandsToGet;
     
 };

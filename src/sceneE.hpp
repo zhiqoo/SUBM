@@ -22,6 +22,9 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
+    float fft[360];
+    void getFft(float *fftSmoothed);
+    
     vector<ofMeshFace> triangles;
     ofEasyCam cam;
     
@@ -30,6 +33,7 @@ public:
     
     ofIcoSpherePrimitive ico_sphere;
     
+    int nBandsToGet;
     int radius;
     
 };
