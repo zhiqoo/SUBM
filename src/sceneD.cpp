@@ -23,7 +23,7 @@ void sceneD::draw(){
     
     auto center = ofVec2f(ofGetWidth()/2, ofGetHeight()/2);
     
-//    span = 3+1000000*volume[260];
+//    span = 3+1000000*fftSmoothed[260];
     span = 20; // 代替
     if (span < 6) {
         span = 6;

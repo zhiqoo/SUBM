@@ -105,15 +105,6 @@ void sceneC::update(){
     pingPong.dst->end();
     pingPong.swap();
     
-//    volume = ofSoundGetSpectrum(nBandsToGet);
-//
-//    for (int i = 0; i < nBandsToGet; i++) {
-//        fftSmoothed[i] *= 0.96f;
-//        if (fftSmoothed[i] < volume[i]) {
-//            fftSmoothed[i] = volume[i];
-//        }
-//    }
-//
 //    theta += 0.1 * fftSmoothed[120];
 //    phy += 0.1 * fftSmoothed[40];
     
