@@ -22,4 +22,10 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
+    ofEasyCam cam;
+    int numParticles;
+    int distParticles;
+    
+    float r, theta, phy;
+    
 };

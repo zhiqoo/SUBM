@@ -27,6 +27,11 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
     
+    ofSoundPlayer mySound;
+    float *volume;
+    float *fftSmoothed;
+    int nBandsToGet;
+    
     vector <baseScene *> scenes;
     int currentScene;
 		

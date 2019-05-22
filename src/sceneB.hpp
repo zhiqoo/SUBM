@@ -22,4 +22,7 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
+    ofMesh myMesh;
+    ofEasyCam cam;
+    
 };

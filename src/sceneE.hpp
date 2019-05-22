@@ -22,4 +22,14 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
+    vector<ofMeshFace> triangles;
+    ofEasyCam cam;
+    
+    int r;
+    float theta, phy;
+    
+    ofIcoSpherePrimitive ico_sphere;
+    
+    int radius;
+    
 };
