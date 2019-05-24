@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    ofSetFrameRate(20);
+    ofSetFrameRate(60);
     ofBackground(39);
     
     baseScene *sa = new sceneA();
@@ -23,7 +23,7 @@ void ofApp::setup(){
     
     mySound.load("1.mp3");
     mySound.setLoop(true);
-    mySound.play();
+//    mySound.play();
     
     fftSmoothed = new float[8192];
     for (int i = 0; i < 8192; i++) {
@@ -75,6 +75,14 @@ void ofApp::keyPressed(int key){
         currentScene %= scenes.size();
         scenes[currentScene]->setup();
     }
+    
+    if (key == 'p') {
+        mySound.play();
+    }
+    
+//    if (key == 'o') {
+//        mySound.stop();
+//    }
     
     switch (key) {
         case '1':
